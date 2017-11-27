@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127171906) do
+ActiveRecord::Schema.define(version: 20171127172525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20171127171906) do
     t.string   "fontawesome_logo"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "flat_options", force: :cascade do |t|
+    t.string   "optional_description"
+    t.integer  "flat_id"
+    t.integer  "feature_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["feature_id"], name: "index_flat_options_on_feature_id", using: :btree
+    t.index ["flat_id"], name: "index_flat_options_on_flat_id", using: :btree
   end
 
   create_table "flats", force: :cascade do |t|
@@ -86,6 +96,8 @@ ActiveRecord::Schema.define(version: 20171127171906) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "flat_options", "features"
+  add_foreign_key "flat_options", "flats"
   add_foreign_key "reviews", "flats"
   add_foreign_key "reviews", "profiles"
 end
