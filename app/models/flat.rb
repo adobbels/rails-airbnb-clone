@@ -3,5 +3,6 @@ class Flat < ApplicationRecord
 
   has_attachment :photo
 
-
+  belongs_to :profile #when a user is the owner of a flat
+  has_many :reviews
 end
