@@ -6,6 +6,5 @@ Rails.application.routes.draw do
     resources :rents
   end
 
-
-  root to: 'flats#index'
+  root to: 'pages#home'
 end
