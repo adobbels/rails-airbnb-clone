@@ -1,0 +1,21 @@
+<h1>Page d'édition d'un flat</h1>
+
+<h2>Which type of accomodation do you have?</h2>
+<%= simple_form_for(@flat) do |f| %>
+<h2>Your localisation</h2>
+<%= f.input :address %>
+<%= f.input :poste_code %>
+<%= f.input :city %>
+
+<h2>Your price by night</h2>
+<%= f.input :price %>
+<h2>Title of your accomodation</h2>
+<%= f.input :name %>
+<h2>Description</h2>
+<%= f.input :description %>
+<h2>Features</h2>
+
+
+<%= f.button :submit, class: 'btn btn-primary' %>
+
+<% end %>

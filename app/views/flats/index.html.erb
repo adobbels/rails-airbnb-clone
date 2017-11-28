@@ -1,1 +1,6 @@
 <h1>Page index des flats</h1>
+
+<% @flats.each do |flat| %>
+<p><%= flat.name %></p>
+<p><%= flat.address %></p>
+<% end %>

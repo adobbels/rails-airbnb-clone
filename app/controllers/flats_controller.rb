@@ -13,13 +13,14 @@ class FlatsController < ApplicationController
   end
 
   def create        # POST /flats
+    @profile = current_user.profile
     @flat = Flat.new(flat_params)
-    @flat.save
-    #if @flat.save
-     #redirect_to flat_path(@flat)
-    #else
-    # render :new
-    #end
+    @flat.profile = @profile
+    if @flat.save
+     redirect_to flat_path(@flat)
+    else
+     render :new
+    end
   end
 
   def edit          # GET /flats/:id/edit
@@ -42,7 +43,7 @@ class FlatsController < ApplicationController
 private
 
 def flat_params
-  params.require(:flat).permit(:name, :description, :category, :price, :capacity, :address, :post_code, :city)
+  params.require(:flat).permit(:name, :description, :category, :price, :capacity, :address, :post_code, :city, :photo, :photo_cache, :profile)
   # To be updated
   # params.require(:flat).permit(:name, :description, :photo, :photo_cache)
 end

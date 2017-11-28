@@ -12,6 +12,7 @@ Feature.create!(name: "pet", fontawesome_logo: "<i class='fa fa-paw' aria-hidden
 
 
 
+
 # # Examples:
 # 10.times do |flat|
 #   Flat.create!(
