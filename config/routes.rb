@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :profiles
+
   devise_for :users
+  resources :users do
+    resources :profiles
+  end
   resources :flats do
     resources :reviews, only: [:new, :create ]
     resources :rents
