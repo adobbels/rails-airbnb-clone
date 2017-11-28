@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128124810) do
 
+ActiveRecord::Schema.define(version: 20171128124810) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20171128124810) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "photo"
+    t.integer  "profile_id"
+    t.index ["profile_id"], name: "index_flats_on_profile_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -58,6 +60,8 @@ ActiveRecord::Schema.define(version: 20171128124810) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "photo"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
   create_table "rents", force: :cascade do |t|
@@ -102,6 +106,8 @@ ActiveRecord::Schema.define(version: 20171128124810) do
 
   add_foreign_key "flat_options", "features"
   add_foreign_key "flat_options", "flats"
+  add_foreign_key "flats", "profiles"
+  add_foreign_key "profiles", "users"
   add_foreign_key "rents", "flats"
   add_foreign_key "rents", "profiles"
   add_foreign_key "reviews", "flats"
