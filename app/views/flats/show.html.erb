@@ -1,7 +1,7 @@
 <h1><%= @flat.name %></h1>
 
 <p><%= @flat.capacity %> persons</p>
-<p>Photo</p>
+<p><%= cl_image_tag @flat.photo, height: 169, width: 354, crop: :fill %></p>
 <p>Formulaire</p>
 <p>Number of people</p>
 <p>Start Date</p>
