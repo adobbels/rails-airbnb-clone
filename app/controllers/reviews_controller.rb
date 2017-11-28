@@ -6,10 +6,17 @@ class ReviewsController < ApplicationController
   end
 
   def create        # POST /profiles
-    @review = Review.new(review_params)
+    @profile = current_user.profile
     @flat = Flat.find(params[:flat_id])
+    @review = Review.new(review_params)
     @review.flat = @flat
-    @review.save
+    @review.profile = @profile
+    if @review.save
+      redirect_to flat_path(@flat)
+    else
+      render :new
+    end
+
   end
 
 private
