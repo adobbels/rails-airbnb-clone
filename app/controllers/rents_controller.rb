@@ -30,7 +30,7 @@ class RentsController < ApplicationController
   end
 
   def edit          # GET /rents/:id/edit
-    @rent = Rent.find(params[:id])
+    @rent = current_user.profile.rents.find(params[:id])
   end
 
   def update        # PATCH /rents/:id
