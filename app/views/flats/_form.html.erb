@@ -1,4 +1,4 @@
-<%= simple_form_for(@flat) do |f| %>
+<%= simple_form_for [@flat] do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :category %>
@@ -9,10 +9,9 @@
   <%= f.input :city %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
-  <%= f.submit %>
+  <%= f.association :features, as: :check_boxes %>
+
+<%= f.submit %>
 <% end %>
 
-<%= content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyCwTzvVbIussroQDL3o9_DNDNViQzTPEdc"></script>
-<% end %>
 

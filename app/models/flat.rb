@@ -3,6 +3,7 @@ class Flat < ApplicationRecord
   after_validation :geocode, if: :address_changed?
   mount_uploader :photo, PhotoUploader
 
+
   belongs_to :profile #when a user is the owner of a flat
   has_many :reviews
   has_many :rents
