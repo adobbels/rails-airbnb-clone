@@ -1,11 +1,14 @@
-<h1>PROFILE</h1>
+<div class="container">
+  <%= render "shared/banner_profile_show" %>
+  <div class="text-center">
+    <h3>First Name:   <%= @profile.first_name %></h3>
+    <h3>Last Name:    <%= @profile.last_name %></h3>
+    <h3>Address:      <%= @profile.address %></h3>
+    <h3>Post Code:    <%= @profile.post_code %></h3>
+    <h3>City:         <%= @profile.city %></h3>
+    <h3>Phone Number: <%= @profile.phone_number %></h3>
+    <h3>Sex:          <%= @profile.sex %></h3>
+    <h3>Birth Date:   <%= @profile.birth_date %></h3>
+  </div>
+</div>
 
-
-<%= @profile.first_name %>
-<%= @profile.last_name %>
-<%= @profile.address %>
-<%= @profile.city %>
-<%= @profile.post_code %>
-<%= @profile.phone_number %>
-<%= @profile.sex %>
-<%= @profile.birth_date %>
