@@ -18,6 +18,8 @@ class FlatsController < ApplicationController
 
   def new           # GET /flats/new
     @flat = Flat.new
+    @feature = Feature.new
+    @features = Feature.all
   end
 
   def create        # POST /flats
