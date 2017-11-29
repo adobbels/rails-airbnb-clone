@@ -13,3 +13,11 @@
 <p>Reviews</p>
 
 <p><%= link_to 'Ajouter un commentaire', new_flat_review_path(@flat), class: 'btn btn-primary' %></p>
+
+
+<% content_for(:after_js) do %>
+<%= javascript_tag do %>
+  const coord = <%= raw @flat_coordinates.to_json %>;
+    alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
+  <% end %>
+<% end %>
