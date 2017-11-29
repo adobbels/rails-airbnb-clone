@@ -8,7 +8,7 @@
         <% @flats.each do |flat| %>
           <div class="col-xs-6">
             <div class="card">
-                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path flat.photo.url %>')">
+                <div class="card" >
                   <p><%= flat.name %></p>
                   <p><%= flat.address %></p>
                    <%= link_to "", flat_path(flat), class: "card-link" %>
