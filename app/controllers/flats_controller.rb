@@ -6,6 +6,7 @@ class FlatsController < ApplicationController
 
   def show          # GET /flats/:id
     @flat = Flat.find(params[:id])
+    @flat_coordinates = { lat: @flat.latitude, lng: @flat.longitude }
   end
 
   def new           # GET /flats/new
@@ -47,4 +48,7 @@ def flat_params
   # To be updated
   # params.require(:flat).permit(:name, :description, :photo, :photo_cache)
 end
+
+
 end
+

@@ -6,4 +6,7 @@ class Flat < ApplicationRecord
   has_many :rents
   has_many :flat_options
   has_many :features, through: :flat_options
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end
