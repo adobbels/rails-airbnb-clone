@@ -7,4 +7,4 @@
 //= require_tree .
 
 
-alert('Bonjour message static...');
+
