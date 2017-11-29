@@ -11,7 +11,3 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 end
-
-
-# probleme avec les routes de profile et user
-# https://stackoverflow.com/questions/1298846/associating-two-models-in-rails-user-and-profile
