@@ -21,9 +21,11 @@ class RentsController < ApplicationController
     @rent.flat = @flat
     @rent.profile = @profile
     if @rent.save
-      redirect_to rent_path(@rent)
+      redirect_to flat_path(@flat)
+      flash[:notice] = 'Booking was successfully created.'
     else
       render :new
+      flash[:notice] = 'Error.  Something went wrong.'
     end
   end
 
@@ -34,7 +36,7 @@ class RentsController < ApplicationController
   def update        # PATCH /rents/:id
     @rent = Rent.find(params[:id])
     @rent.update(rent_params)
-    redirect_to rent_path(@rent)
+    redirect_to flat_path(@flat)
   end
 
   def destroy       # DELETE /rents/:id
