@@ -1,15 +1,25 @@
 <div class="container">
-<%= simple_form_for [current_user, @profile] do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :address %>
-  <%= f.input :city %>
-  <%= f.input :post_code %>
-  <%= f.input :phone_number %>
-  <%= f.input :sex %>
-  <%= f.input :birth_date %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.button :submit, class:"btn btn-primary" %>
-<% end %>
+  <div class="text-center" id="form_new_profile">
+    <div class="card_profile_form">
+      <%= simple_form_for [current_user, @profile] do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :address %>
+        <%= f.input :city %>
+        <%= f.input :post_code %>
+        <%= f.input :phone_number %>
+        <%= f.input :sex %>
+        <%= f.input :birth_date %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.button :submit, class:"btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
+
+
+
+
+
