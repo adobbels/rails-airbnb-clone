@@ -8,12 +8,12 @@ class FlatOptionsController < ApplicationController
   end
 
   def create
-    @feature =
+    @feature = Feature.new
     @flat = Flat.find(params[:flat_id])
     @flat_option = FlatOption.new(flat_option_params)
     @flat_option.flat = @flat
-    @flat_otiopn.feature = @feature
-    if @review.save
+    @flat_option.feature = @feature
+    if @flat_option.save
       redirect_to flat_path(@flat)
     else
       render :new
@@ -34,8 +34,7 @@ class FlatOptionsController < ApplicationController
 
   private
   def flat_option_params
-    params.require(:flat_option).permit(:content, :title_review)
+    params.require(:flat_option).permit(:television, :pet, :bed, :wifi, :user, :document)
   end
-
 
 end
