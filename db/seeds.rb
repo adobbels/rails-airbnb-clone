@@ -1,9 +1,9 @@
- # This file should contain all the record creation needed to seed the database with its default values.
+# This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 # require 'faker'
 # Examples:
-Feature.create!(name: "<i class='fa fa-television' aria-hidden='true'></i>", fontawesome_logo: "<i class='fa fa-television' aria-hidden='true'></i>")
+Feature.create!(name: "television", fontawesome_logo: "<i class='fa fa-television' aria-hidden='true'></i>")
 Feature.create!(name: "bed", fontawesome_logo: "<i class='fa fa-bed' aria-hidden='true'></i>")
 Feature.create!(name: "wifi", fontawesome_logo: "<i class='fa fa-wifi' aria-hidden='true'></i>")
 Feature.create!(name: "user", fontawesome_logo: "<i class='fa fa-users' aria-hidden='true'></i>")
