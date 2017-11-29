@@ -1,17 +1,18 @@
 .card {
   height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+
   background-size: cover !important;
   background-position: center;
-  color: white;
+  color: gray;
   position: relative;
+  border-radius: 5px;
 }
 .card-user {
   position: absolute;
   right: 10px;
   top: 10px;
-  width: 40px;
-  border-radius: 50%;
+  width: 200px;
+  border-radius: 5%;
 }
 .card-category {
   position: absolute;
@@ -26,7 +27,7 @@
   left: 10px;
 }
 .card-description h2 {
-  font-size: 24px;
+  font-size: 40px;
 }
 .card-description p {
   font-size: 14px;
@@ -45,4 +46,29 @@
 }
 .card-link:hover {
   opacity: 0.1;
+}
+#form_new_profile {
+  color: gray;
+}
+.card_profile{
+  height: 520px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  background-color: gray;
+  border-radius: 5px;
+}
+.card_profile_form {
+  height: 850px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  width: auto;
+  background-position: center;
+  color: white;
+  position: relative;
+  background-color: gray;
+  border-radius: 5px;
+
 }

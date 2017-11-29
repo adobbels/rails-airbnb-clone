@@ -5,7 +5,8 @@ skip_before_action :has_profile?
   end
 
   def show          # GET /profiles/:id
-    @profile = Profile.find(current_user)
+   @profile = current_user.profile
+
   end
 
   def new           # GET /profiles/new
@@ -18,6 +19,7 @@ skip_before_action :has_profile?
     @profile.user = current_user
     if @profile.save
       flash[:notice] = 'Profile was successfully created.'
+
       redirect_to user_profile_path(@profile, current_user)
     else
       flash[:notice] = 'Error.  Something went wrong.'
@@ -26,13 +28,20 @@ skip_before_action :has_profile?
   end
 
   def edit          # GET /profiles/:id/edit
-    @profile = Profile.find(current_user)
+    @profile = current_user.profile
   end
 
   def update        # PATCH /profiles/:id
-    @profile = Profile.find(current_user)
-    @profile.update(profile_params)
-    redirect_to user_profile_path(@profile, current_user)
+    @profile = current_user.profile
+    if @profile.update(profile_params)
+      flash[:notice] = 'Profile was successfully updated.'
+
+      redirect_to user_profile_path(@profile, current_user)
+    else
+      flash[:notice] = 'Error.  Something went wrong.'
+      render :edit
+    end
+
   end
 
   def destroy       # DELETE /profiles/:id
@@ -45,7 +54,7 @@ private
 
 def profile_params
 
-  params.require(:profile).permit(:first_name, :last_name, :address, :city, :post_code, :phone_number, :sex, :birth_date )
+  params.require(:profile).permit(:first_name, :last_name, :address, :city, :post_code, :phone_number, :sex, :birth_date, :photo, :photo_cache)
 end
 
 end
