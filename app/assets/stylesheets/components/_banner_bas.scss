@@ -18,7 +18,16 @@ background-position: 25% 75%;
 
 }
 
+.button-hidden-bas {
+  position: absolute;
+  bottom: 13em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  left: 0;
+  right: 0;
 
+}
 .button-bas {
   padding: 1em;
   border: solid 0.2em;
@@ -37,8 +46,7 @@ background-color: rgba(0, 0, 255, 0.0);
 }
 
 .titre-bas {
-  text-align: left;
-  position: absolute;
-  top: 4.5em;
+  margin-top: 70px;
+  bottom: 4.5em;
 
 }
