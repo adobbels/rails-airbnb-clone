@@ -11,6 +11,10 @@
       <p>Start Date</p>
       <p>End Date</p>
       <p>Equipement</p>
+      <% @flat.features.each do |feature| %>
+      <%= feature.name %>
+      <%= feature.fontawesome_logo %>
+      <% end %>
 
     </div>
   </div>

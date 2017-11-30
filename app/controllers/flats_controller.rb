@@ -35,6 +35,7 @@ class FlatsController < ApplicationController
         FlatOption.create(flat: @flat, feature: feature)
 
       end
+
      redirect_to flat_path(@flat)
     else
      render :new
