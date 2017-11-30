@@ -11,19 +11,19 @@
   <%= link_to "New Flat", new_flat_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <% if user_signed_in? %>
-
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= cl_image_tag current_user.profile.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= cl_image_tag current_user.profile.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" if current_user.profile%>
             <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
+              <% if current_user.profile %>
+                <% @profile = Profile.find(current_user.profile) if current_user.profile%>
 
-              <% @profile = Profile.find(current_user)%>
+                <%= link_to profile_path(@profile) do %>
 
-              <%= link_to user_profile_path(@profile, current_user) do %>
-
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <% end %>
               <% end %>
             </li>
             <li>
@@ -56,4 +56,3 @@
     </div>
   </div>
 </div>
-

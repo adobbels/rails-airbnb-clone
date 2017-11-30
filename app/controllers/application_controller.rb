@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :has_profile?
   def has_profile?
     if current_user && current_user.profile.nil?
-      redirect_to new_user_profile_path(current_user)
+      redirect_to new_profile_path
     end
   end
 end

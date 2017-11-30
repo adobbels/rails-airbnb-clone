@@ -11,7 +11,6 @@ skip_before_action :has_profile?
 
   def new           # GET /profiles/new
     @profile = Profile.new
-    @profile.user = current_user
   end
 
   def create        # POST /profiles
@@ -20,7 +19,7 @@ skip_before_action :has_profile?
     if @profile.save
       flash[:notice] = 'Profile was successfully created.'
 
-      redirect_to user_profile_path(@profile, current_user)
+      redirect_to profiles_path
     else
       flash[:notice] = 'Error.  Something went wrong.'
       render :new
@@ -36,7 +35,7 @@ skip_before_action :has_profile?
     if @profile.update(profile_params)
       flash[:notice] = 'Profile was successfully updated.'
 
-      redirect_to user_profile_path(@profile, current_user)
+      redirect_to profile_path(@profile)
     else
       flash[:notice] = 'Error.  Something went wrong.'
       render :edit
