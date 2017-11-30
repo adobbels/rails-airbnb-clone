@@ -1,23 +1,27 @@
 <%= render "shared/banner_flat" %>
 <%= render "shared/formulaire_flat" %>
 
-<div class="containe">
+<div class="container">
   <div class="row">
     <div class="col-xs-offset-6 col-xs-6">
 
       <!-- <p><%= cl_image_tag @flat.photo, height: 169, width: 354, crop: :fill %></p> -->
-      <p><%=@flat.description%></p>
-      <p>Capacity: <%=@flat.capacity%> persons</p>
-      <p><%=@flat.description %></p>
-      <p>Equipements</p>
-      <p><%=@flat.address%></p>
-      <p><%=@flat.city%><%=@flat.post_code%></p>
+      <div class="description">
+        <h3>Description</h3>
+        <p><%=@flat.description%></p>
+
+        <p>Capacity: <%=@flat.capacity%> persons</p>
+      </div>
+      <div class="description">
+        <h3>Address</h3>
+        <p><%=@flat.address%></p>
+        <p><%=@flat.city%><%=@flat.post_code%></p>
+      </div>
       <% @reviews = @flat.reviews %>
       <% if @flat.reviews %>
-        <%@reviews.each do |review|%>
-          <h3><strong> <%= review.title_review%></strong></h3>
-          <p><%= review.content%></p>
-        <%end%>
+
+          <%= render "shared/reviews_flat_show" %>
+
       <%end%>
     </div>
   </div>
