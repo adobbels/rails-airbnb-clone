@@ -19,7 +19,7 @@
             <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
 
-              <% @profile = Profile.find(current_user)%>
+              <% @profile = User.find(current_user)%>
 
               <%= link_to user_profile_path(@profile, current_user) do %>
 
