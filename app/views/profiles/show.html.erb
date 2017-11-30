@@ -10,7 +10,7 @@
       <h3>Phone Number: <%= @profile.phone_number %></h3>
       <h3>Sex:          <%= @profile.sex %></h3>
       <h3>Birth Date:   <%= @profile.birth_date %></h3>
-      <p><%= link_to 'Update', edit_user_profile_path(@profile, current_user), class: 'btn btn-primary' %></p>
+      <p><%= link_to 'Update', edit_profile_path(@profile), class: 'btn btn-primary' %></p>
     </div>
   </div>
 </div>
