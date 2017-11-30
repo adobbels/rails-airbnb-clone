@@ -25,7 +25,7 @@ class RentsController < ApplicationController
           redirect_to profile_path(@profile)
           flash[:notice] = 'Booking was successfully created.'
         else
-      redirect_to new_profile_path
+          redirect_to new_profile_path
           flash[:alert] = 'Please create a profile before booking.'
         end
     else
