@@ -11,7 +11,6 @@ skip_before_action :has_profile?
 
   def new           # GET /profiles/new
     @profile = Profile.new
-    @profile.user = current_user
   end
 
   def create        # POST /profiles
