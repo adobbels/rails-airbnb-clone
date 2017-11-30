@@ -1,8 +1,15 @@
 <div class="formulaire-flat">
   <div class="formulaire-content">
-    <p><%= link_to 'Book this room', new_flat_rent_path(@flat), class: 'btn btn-primary' %></p>
     <p><%= link_to 'Add a review', new_flat_review_path(@flat), class: 'btn btn-primary' %></p>
     <h1><%= @flat.name %></h1>
     <p><%= @flat.description %></p>
+    <% @rent = Rent.find(current_user) %>
+    <%= simple_form_for [@flat, @rent] do |f| %>
+      <%= f.input :number_of_people %>
+      <%= f.input :check_in_date, as: :date, html5: true %>
+      <%= f.input :check_out_date, as: :date, html5: true %>
+    <%= f.submit "Book it!", class: "btn btn-primary" %>
+<% end %>
+
   </div>
 </div>
