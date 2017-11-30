@@ -21,8 +21,9 @@
                 <% @profile = Profile.find(current_user.profile) if current_user.profile%>
 
                 <%= link_to profiles_path do %>
-              <% end %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <% end %>
               <% end %>
             </li>
             <li>
