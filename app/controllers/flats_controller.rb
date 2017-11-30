@@ -33,6 +33,7 @@ class FlatsController < ApplicationController
       feature_ids.each do |feature_id|
         feature = Feature.find_by(id: feature_id) if !feature_id.blank?
         FlatOption.create(flat: @flat, feature: feature)
+
       end
      redirect_to flat_path(@flat)
     else
