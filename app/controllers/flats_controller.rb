@@ -25,8 +25,9 @@ class FlatsController < ApplicationController
     @profile = current_user.profile
     @flat = Flat.new(flat_params)
     @flat.profile = @profile
-    @feature = Feature.find(params[:id])
-    @feature.flat = @feature
+
+    @feature =
+    fail
 
     if @flat.save
      redirect_to flat_path(@flat)
@@ -58,9 +59,7 @@ private
 def flat_params
   params.require(:flat).permit(:name, :description, :category, :price, :capacity, :address, :post_code, :city, :photo, :photo_cache, :profile)
   # To be updated
-  # params.require(:flat).permit(:name, :description, :photo, :photo_cache)
 end
-
 
 end
 
