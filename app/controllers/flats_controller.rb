@@ -20,16 +20,21 @@ class FlatsController < ApplicationController
     @flat = Flat.new
   end
 
-  def create        # POST /flats
+  def create
+          # POST /flats
     @profile = current_user.profile
     @flat = Flat.new(flat_params)
     @flat.profile = @profile
+    @feature = Feature.find(params[:id])
+    @feature.flat = @feature
+
     if @flat.save
      redirect_to flat_path(@flat)
     else
      render :new
     end
   end
+
 
   def edit          # GET /flats/:id/edit
     @flat = Flat.find(params[:id])
