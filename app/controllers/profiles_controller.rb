@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-skip_before_action :has_profile?
+# skip_before_action :has_profile?
   def index         # GET /profiles
     @profiles = Profile.all
   end
@@ -21,8 +21,8 @@ skip_before_action :has_profile?
 
       redirect_to profiles_path
     else
-      flash[:notice] = 'Error.  Something went wrong.'
-      render :new
+      flash[:notice] = 'Your profile has not been created, please update your profile later.'
+      redirect_to root_path
     end
   end
 
