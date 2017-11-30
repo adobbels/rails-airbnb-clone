@@ -19,7 +19,7 @@ skip_before_action :has_profile?
     if @profile.save
       flash[:notice] = 'Profile was successfully created.'
 
-      redirect_to user_profile_path(@profile, current_user)
+      redirect_to profiles_path
     else
       flash[:notice] = 'Error.  Something went wrong.'
       render :new
