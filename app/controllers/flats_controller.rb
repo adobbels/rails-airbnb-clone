@@ -23,13 +23,17 @@ class FlatsController < ApplicationController
   def create
           # POST /flats
     @profile = current_user.profile
+
     @flat = Flat.new(flat_params)
     @flat.profile = @profile
 
-    @feature =
-    fail
+    feature_ids = params['flat']['feature_ids'] # --> ["", 4, 5]
 
     if @flat.save
+      feature_ids.each do |feature_id|
+        feature = Feature.find_by(id: feature_id) if !feature_id.blank?
+        FlatOption.create(flat: @flat, feature: feature)
+      end
      redirect_to flat_path(@flat)
     else
      render :new
@@ -57,9 +61,8 @@ class FlatsController < ApplicationController
 private
 
 def flat_params
-  params.require(:flat).permit(:name, :description, :category, :price, :capacity, :address, :post_code, :city, :photo, :photo_cache, :profile)
+  params.require(:flat).permit(:name, :description, :category, :price, :capacity, :address, :post_code, :city, :photo, :photo_cache, :profile, :feature_ids)
   # To be updated
 end
-
 end
 
