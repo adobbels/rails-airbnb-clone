@@ -15,17 +15,22 @@ class RentsController < ApplicationController
   end
 
   def create        # POST /rents
-    @profile = current_user.profile
-    @flat = Flat.find(params[:flat_id])
-    @rent = Rent.new(rent_params)
-    @rent.flat = @flat
-    @rent.profile = @profile
-    if @rent.save
-      redirect_to profile_path(@profile)
-      flash[:notice] = 'Booking was successfully created.'
+    if user_signed_in? || current_user.profile.present?
+      @profile = current_user.profile
+      @flat = Flat.find(params[:flat_id])
+      @rent = Rent.new(rent_params)
+      @rent.flat = @flat
+      @rent.profile = @profile
+        if @rent.save
+          redirect_to profile_path(@profile)
+          flash[:notice] = 'Booking was successfully created.'
+        else
+      redirect_to new_profile_path
+          flash[:alert] = 'Please create a profile before booking.'
+        end
     else
-      render :new
-      flash[:notice] = 'Error.  Something went wrong.'
+      redirect_to new_profile_path
+      flash[:alert] = 'Please create a profile before booking.'
     end
   end
 
