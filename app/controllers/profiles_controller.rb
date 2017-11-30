@@ -35,7 +35,7 @@ skip_before_action :has_profile?
     if @profile.update(profile_params)
       flash[:notice] = 'Profile was successfully updated.'
 
-      redirect_to user_profile_path(@profile, current_user)
+      redirect_to profile_path(@profile)
     else
       flash[:notice] = 'Error.  Something went wrong.'
       render :edit
