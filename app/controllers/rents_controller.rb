@@ -20,9 +20,8 @@ class RentsController < ApplicationController
     @rent = Rent.new(rent_params)
     @rent.flat = @flat
     @rent.profile = @profile
-    fail
     if @rent.save
-      redirect_to flat_path(@flat)
+      redirect_to profile_path(@profile)
       flash[:notice] = 'Booking was successfully created.'
     else
       render :new
