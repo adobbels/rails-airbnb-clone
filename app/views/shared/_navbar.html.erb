@@ -20,7 +20,7 @@
               <% if current_user.profile %>
                 <% @profile = Profile.find(current_user.profile) if current_user.profile%>
 
-                <%= link_to profiles_path do %>
+                <%= link_to profile_path(@profile) do %>
 
                   <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
                 <% end %>
@@ -56,4 +56,3 @@
     </div>
   </div>
 </div>
-
