@@ -21,6 +21,16 @@
 
       <div class="navbar-wagon-item">
         <div class="dropdown">
+
+
+
+
+                <%= link_to profile_path(@profile) do %>
+
+
+
+
+
           <% if current_user.profile %>
             <%= cl_image_tag current_user.profile.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
@@ -65,4 +75,3 @@
     </div>
   </div>
 </div>
-
