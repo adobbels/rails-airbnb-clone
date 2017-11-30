@@ -1,7 +1,7 @@
 <%= render "shared/banner_flat" %>
 <%= render "shared/formulaire_flat" %>
 
-<div class="containe">
+<div class="container">
   <div class="row">
     <div class="col-xs-offset-6 col-xs-6">
       <p><%= @flat.capacity %> persons</p>
@@ -12,7 +12,7 @@
       <p>End Date</p>
       <p><%= @flat.description %></p>
       <p>Equipements</p>
-      <p>Reviews</p>
+      <p><%= @flat.feature %></p>
     </div>
   </div>
 </div>
