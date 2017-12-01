@@ -1,19 +1,21 @@
 .formulaire-flat {
-  width: 30em;
-  height: 39em;
+  width: 28em;
+  height: 28em;
   padding: 20px;
   background-color: rgba(255,255,255,0.5);
   position: absolute;
   left: 3em;
-  top: 7em;
+  top: 6em;
   z-index: 2;
   border-radius: 4%;
   text-align: center;
   position:fixed;
 }
 .formulaire-flat h1 {
-  font-size: 50px;
+  font-size: 48px;
   font-family: 'Playfair Display', serif;
+  margin: 0;
+  padding: 0;
 }
 
 .formulaire-flat p {
