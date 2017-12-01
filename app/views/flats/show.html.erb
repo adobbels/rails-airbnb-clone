@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-offset-6 col-xs-6">
-      <p><%= @flat.capacity %> persons</p>
+
       <!-- <p><%= cl_image_tag @flat.photo, height: 169, width: 354, crop: :fill %></p> -->
       <p>Formulaire</p>
       <p>Number of people</p>
@@ -13,6 +13,24 @@
       <p><%= @flat.description %></p>
       <p>Equipements</p>
       <p>Reviews</p>
+
+      <div class="description">
+        <h3>Description</h3>
+        <p><%=@flat.description%></p>
+
+        <p>Capacity: <%=@flat.capacity%> persons</p>
+      </div>
+      <div class="description">
+        <h3>Address</h3>
+        <p><%=@flat.address%></p>
+        <p><%=@flat.city%><%=@flat.post_code%></p>
+      </div>
+      <% @reviews = @flat.reviews %>
+      <% if @flat.reviews %>
+
+          <%= render "shared/reviews_flat_show" %>
+
+      <%end%>
     </div>
   </div>
 </div>
