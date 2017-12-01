@@ -2,6 +2,8 @@
   <%= render "shared/banner_profile_show" %>
   <div class="text-center" id="form_new_profile">
     <div class="card_profile">
+
+
       <h3>First Name:   <%= @profile.first_name %></h3>
       <h3>Last Name:    <%= @profile.last_name %></h3>
       <h3>Address:      <%= @profile.address %></h3>
@@ -11,6 +13,18 @@
       <h3>Sex:          <%= @profile.sex %></h3>
       <h3>Birth Date:   <%= @profile.birth_date %></h3>
       <p><%= link_to 'Update', edit_profile_path(@profile), class: 'btn btn-primary' %></p>
+
+    </div>
+    <p>Vos réservations</p>
+    <div class='row'>
+      <% current_user.profile.rents.each do |rent|%>
+
+        <div class="col-xs-6 col-md-4">
+          <%= render 'shared/card', flat: rent.flat %>
+          <p>Date d'entrée:<%= rent.check_in_date %></p>
+          <p>Date de sortie:<%= rent.check_out_date %></p>
+        </div>
+      <% end%>
     </div>
   </div>
 </div>
