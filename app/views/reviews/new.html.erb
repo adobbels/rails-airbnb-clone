@@ -1,5 +1,11 @@
-<%= simple_form_for [@flat, @review] do |f| %>
-  <%= f.input :title_review %>
-  <%= f.input :content %>
-  <%= f.submit "add a review", class: "btn btn-primary" %>
-<% end %>
+<div class="container_login banner-flat" style="background-image: url('http://res.cloudinary.com/dwkqph9as/image/upload/v1511970291/BannerImage_vp7iqa.jpg');">
+  <div class="review_card">
+    <div class="zone_form">
+      <%= simple_form_for [@flat, @review] do |f| %>
+        <%= f.input :title_review %>
+        <%= f.input :content %>
+        <%= f.submit "add a review", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

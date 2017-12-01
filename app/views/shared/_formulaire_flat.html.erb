@@ -2,10 +2,10 @@
   <div class="formulaire-content">
     <p><%= link_to 'Add a review', new_flat_review_path(@flat), class: 'btn btn-primary' %></p>
     <h1><%= @flat.name %></h1>
-    <p><%= @flat.description %></p>
+    <p><%= @flat.price %> euros/night</p>
     <% @rent = Rent.new %>
     <%= simple_form_for [@flat, @rent] do |f| %>
-      <%= f.input :number_of_people %>
+      <%= f.input :number_of_people, collection: 1..10  %>
       <%= f.input :check_in_date, as: :date, html5: true %>
       <%= f.input :check_out_date, as: :date, html5: true %>
     <%= f.submit "Book it!", class: "btn btn-primary" %>
