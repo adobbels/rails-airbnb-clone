@@ -13,13 +13,17 @@
 
   </div>
     <p>Vos réservations</p>
+
     <div class='row'>
       <% current_user.profile.rents.each do |rent|%>
 
         <div class="col-xs-6 col-md-4">
           <%= render 'shared/card', flat: rent.flat %>
-          <p>Date d'entrée:<%= rent.check_in_date %></p>
-          <p>Date de sortie:<%= rent.check_out_date %></p>
+          <p>Check In:<%= rent.check_in_date %></p>
+          <p>Check Out:<%= rent.check_out_date %></p>
+          <% duree = rent.check_out_date - rent.check_in_date %>
+          <% tarif = rent.flat.price * duree  %>
+          <p>You will pay <%= tarif.to_i %>€</p>
         </div>
       <% end%>
     </div>
