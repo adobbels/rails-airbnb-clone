@@ -1,5 +1,7 @@
 <div class="zone_form">
-
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
   <%= simple_form_for(@flat) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
@@ -7,11 +9,20 @@
     <%= f.input :price %>
     <%= f.input :capacity %>
     <%= f.input :address %>
+    <div class="row">
+      <div class="col-xs-6">
     <%= f.input :post_code %>
+  </div>
+  <div class="col-xs-6">
     <%= f.input :city %>
+  </div>
+  </div>
     <%= f.association :features, as: :check_boxes %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.submit %>
   <% end %>
+    </div>
+    </div>
+  </div>
 </div>
