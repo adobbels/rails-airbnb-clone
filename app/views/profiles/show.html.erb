@@ -5,20 +5,20 @@
   <div class="title_show">
     <h1> Hello <%=@profile.first_name.capitalize%> !</h1>
     <h3><%=@profile.city%>
-     <p><%= link_to 'Amend Profile', edit_profile_path(@profile), class: 'btn btn-danger' %></p>
+     <p><%= link_to 'Amend Profile', edit_profile_path(@profile), class: "amend" %></p>
   </div>
 </div>
 <div class="container_show2">
-  <div class="show_profile">
+  <div class="show_profile2">
     <h2><strong>My details:</strong></h2>
-    <h3>First Name:   <%= @profile.first_name %></h3>
-    <h3>Last Name:    <%= @profile.last_name %></h3>
-    <h3>Address:      <%= @profile.address %></h3>
-    <h3>Post Code:    <%= @profile.post_code %></h3>
-    <h3>City:         <%= @profile.city %></h3>
-    <h3>Phone Number: 0<%= @profile.phone_number %></h3>
-    <h3>Sex:          <%= @profile.sex %></h3>
-    <h3>Birth Date:   <%= @profile.birth_date %></h3>
+    <h4><strong>First Name:</strong> <%= @profile.first_name %></h4>
+    <h4><strong>Last Name:</strong> <%= @profile.last_name %></h4>
+    <h4><strong>Address:</strong> <%= @profile.address %></h4>
+    <h4><strong>Post Code:</strong> <%= @profile.post_code %></h4>
+    <h4><strong>City:</strong> <%= @profile.city %></h4>
+    <h4><strong>Phone Number:</strong> <%= @profile.phone_number %></h4>
+    <h4><strong>Sex:</strong> <%= @profile.sex %></h4>
+    <h4><strong>Birth Date:</strong> <%= @profile.birth_date %></h4>
 
   </div>
 </div>
@@ -28,11 +28,11 @@
     <% current_user.profile.rents.each do |rent|%>
       <div class="col-xs-6 col-md-4">
         <%= render 'shared/card', flat: rent.flat %>
-        <p>Check In: <%= rent.check_in_date %></p>
-        <p>Check Out: <%= rent.check_out_date %></p>
+        <p>From: <%= rent.check_in_date %></p>
+        <p>To: <%= rent.check_out_date %></p>
         <% duree = rent.check_out_date - rent.check_in_date %>
         <% tarif = rent.flat.price * duree  %>
-        <p>You will pay <%= tarif.to_i %> €</p>
+        <p>Total price: € <%= tarif.to_i %> .</p>
       </div>
     <% end%>
   </div>
