@@ -9,7 +9,7 @@
       <div class="description">
         <h3>Description</h3>
         <p><%= @flat.description %></p>
-        <p>Equipement</p>
+        <h3>Equipement</h3>
           <% @flat.features.each do |feature| %>
             <p><%= feature.name %>
             <%=raw feature.fontawesome_logo %>
