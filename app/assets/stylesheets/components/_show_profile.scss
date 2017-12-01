@@ -1,20 +1,26 @@
 .container_show {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  vertical-align: center;
+  position: left;
 
+.title_show {
+  margin-top: 25px;
+  margin-left: 50px;
+  left: 200px;
+  color: #9A9B94;
 
+}
 
 }
 .show_profile {
-background-color: #DDDDDD;
-border-radius: 5px;
+font-weight: lighter;
+color: #9A9B94;
+
+
 
 }
 .profile_photo{
   height: 250px;
-  width: 200px;
+  margin-left: 25px;
   top: 100px;
   border-radius:5px;
   margin-top: 25px;
@@ -25,7 +31,8 @@ border-radius: 5px;
 }
 .container_show2 {
 margin-top: 50px;
-
+border-bottom: 2px solid rgba(220,224,244,0.4);
 margin-left: 25px;
 margin-right: 25px;
+
 }
