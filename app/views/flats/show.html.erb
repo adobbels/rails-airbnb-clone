@@ -29,8 +29,23 @@
         <p><%=@flat.city%><%=@flat.post_code%></p>
       </div>
 
-      <div class="map-flat">
-      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@flat.address}" %>
+      <div class="map-flat" id="map-flat">
+      <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map-flat' } }, function() {
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+          }
+        });
+        <% end %>
+      <% end %>
+      <% #image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@flat.address}" %>
       </div>
     </div>
   </div>
