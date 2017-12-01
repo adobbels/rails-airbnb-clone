@@ -7,6 +7,7 @@
   <%= f.input :address %>
   <%= f.input :post_code %>
   <%= f.input :city %>
+  <%= f.association :features, as: :check_boxes %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
   <%= f.submit %>

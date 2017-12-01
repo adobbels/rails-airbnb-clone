@@ -10,8 +10,15 @@
       <p>Number of people</p>
       <p>Start Date</p>
       <p>End Date</p>
+
       <p><%= @flat.description %></p>
-      <p>Equipements</p>
+      <p>Equipement</p>
+      <% @flat.features.each do |feature| %>
+
+      <p><%= feature.name %>
+      <%=raw feature.fontawesome_logo %>
+      </p>
+      <% end %>
       <p>Reviews</p>
 
       <div class="description">
@@ -31,9 +38,9 @@
           <%= render "shared/reviews_flat_show" %>
 
       <%end%>
+
     </div>
   </div>
-</div>
 
 
 
