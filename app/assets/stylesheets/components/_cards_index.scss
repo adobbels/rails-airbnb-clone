@@ -1,13 +1,22 @@
 .card {
   height: 510px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 1px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
-  border: solid;
-
 }
+
+.card-flat-index h5{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-flat-index p{
+    font-size: 13px;
+    font-weight: light;
+}
+
 .card-user {
   position: absolute;
   right: 10px;
@@ -41,7 +50,7 @@
   bottom: 0;
   right: 0;
   width: 100%;
-  z-index: 2;
+  // z-index: 2;
   background: black;
   opacity: 0;
 }
