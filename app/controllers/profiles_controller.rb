@@ -18,7 +18,9 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
     if @profile.save
       flash[:notice] = 'Profile was successfully created.'
-      redirect_to profiles_path
+      redirect_to profile_path(@profile)
+
+
     else
       flash[:notice] = 'Your profile has not been created, please update your profile later.'
       redirect_to root_path
