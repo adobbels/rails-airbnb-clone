@@ -5,9 +5,9 @@
       <h1>Ready to move in?</h1>
     </div>
     <div class="button-hidden-bas">
-        <button class='button-bas'>I want to see your flats
-          <%= link_to "Flats", flats_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        </button>
+      <div class="button-hidden">
+          <%= button_to  "I want to see your flats", flats_path, :method => "get"  %>
+      </div>
     </div>
   </div>
 </div>
