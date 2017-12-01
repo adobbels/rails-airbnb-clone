@@ -38,10 +38,13 @@
           <%= render "shared/reviews_flat_show" %>
 
       <%end%>
-
+      <div class="map-flat">
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@flat.address}" %>
+      </div>
     </div>
   </div>
 </div>
+
 <%= render "shared/banner_bas" %>
 <%= render "shared/footer" %>
 
