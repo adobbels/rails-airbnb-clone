@@ -18,6 +18,16 @@ class FlatsController < ApplicationController
 
   def new           # GET /flats/new
     @flat = Flat.new
+    if user_signed_in?
+      if current_user.profile.present?
+      else
+        redirect_to new_profile_path
+        flash[:alert] = 'Please create a profile before booking.'
+      end
+    else
+      redirect_to user_session_path
+      flash[:alert] = 'Please log-in before booking.'
+    end
   end
 
   def create        # POST /flats

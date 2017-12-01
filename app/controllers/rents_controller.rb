@@ -15,22 +15,27 @@ class RentsController < ApplicationController
   end
 
   def create        # POST /rents
-    if user_signed_in? || current_user.profile.present?
-      @profile = current_user.profile
-      @flat = Flat.find(params[:flat_id])
-      @rent = Rent.new(rent_params)
-      @rent.flat = @flat
-      @rent.profile = @profile
-        if @rent.save
-          redirect_to profile_path(@profile)
-          flash[:notice] = 'Booking was successfully created.'
-        else
-          redirect_to new_profile_path
-          flash[:alert] = 'Please create a profile before booking.'
-        end
+    if user_signed_in?
+      if current_user.profile.present?
+        @profile = current_user.profile
+        @flat = Flat.find(params[:flat_id])
+        @rent = Rent.new(rent_params)
+        @rent.flat = @flat
+        @rent.profile = @profile
+          if @rent.save
+            redirect_to profile_path(@profile)
+            flash[:notice] = 'Booking was successfully created.'
+          else
+            redirect_to new_profile_path
+            flash[:alert] = 'Please create a profile before booking.'
+          end
+      else
+        redirect_to new_profile_path
+        flash[:alert] = 'Please create a profile before booking.'
+      end
     else
-      redirect_to new_profile_path
-      flash[:alert] = 'Please create a profile before booking.'
+      redirect_to user_session_path
+      flash[:alert] = 'Please log-in before booking.'
     end
   end
 
