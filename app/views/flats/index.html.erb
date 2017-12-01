@@ -1,38 +1,41 @@
 <div id="index-flats">
-<h1>Page index des flats</h1>
-<%= render "shared/search_bar" %>
-<%= render "shared/bouton_filter" %>
-<div class="flats-main">
-    <div class="container">
-      <div class="row">
-        <% @flats.each do |flat| %>
-
-          <div class="col-xs-6">
-            <%= render 'shared/card', flat: flat %>
-            <%= link_to "", flat_path(flat), class: "card-link" %>
-          </div>
-        <% end %>
+  <h1>Which flat caught your eye ?</h1>
+  <%= render "shared/search_bar" %>
+  <%= render "shared/bouton_filter" %>
+  <div class="flats-main">
+      <div class="container">
+        <div class="row">
+          <% @flats.each do |flat| %>
+            <div class="card-flat-index">
+              <div class="col-xs-6">
+                <%= render 'shared/card', flat: flat %>
+                <h5><%= flat.name %></h5>
+                <p> From €<%= flat.price %></p>
+                <%= link_to "", flat_path(flat), class: "card-link" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <div class="map-index">
-    <div id="map" style="width: 100%; height: 100%;"></div>
+    <div class="map-index">
+      <div id="map" style="width: 100%; height: 100%;"></div>
 
-      <% content_for(:after_js) do %>
-        <%= javascript_tag do %>
-        var handler = Gmaps.build('Google');
-        handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-        handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-          }
-        });
+        <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @markers.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+            }
+          });
+          <% end %>
         <% end %>
-      <% end %>
-  </div>
+    </div>
 
 </div>
 <%= render "shared/footer" %>
