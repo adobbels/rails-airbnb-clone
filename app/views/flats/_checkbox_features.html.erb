@@ -1,0 +1,8 @@
+
+<%= simple_form_for(Feature.all) do |feature| %>
+<%= flat.input :features, as: :boolean, collection: @flat.features %>
+<% end %>
+
+<%= f.submit 'Save' %>
+
+<!--f.input :television, :as :boolean -->

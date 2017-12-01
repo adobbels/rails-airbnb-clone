@@ -10,18 +10,29 @@
   <%= link_to "Flats", flats_path, class: "navbar-wagon-item navbar-wagon-link" %>
   <%= link_to "New Flat", new_flat_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
+
     <% if user_signed_in? %>
       <!-- Avatar with dropdown menu -->
+      <% if current_user.profile.present? %>
+        <%= link_to "Profile", profile_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+      <% else %>
+        <%= link_to "Profile", new_profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% end  %>
+
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= cl_image_tag current_user.profile.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" if current_user.profile%>
-            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+
+          <% if current_user.profile %>
+            <%= cl_image_tag current_user.profile.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% else %>
+            <%= cl_image_tag "http://res.cloudinary.com/dwkqph9as/image/upload/v1512050406/default_avatar_picture_zpo1in.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% end  %>
+
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <% if current_user.profile %>
                 <% @profile = Profile.find(current_user.profile) if current_user.profile%>
-
                 <%= link_to profiles_path do %>
-
                   <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
                 <% end %>
               <% end %>
@@ -35,6 +46,7 @@
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
+
             </li>
           </ul>
         </div>
@@ -56,4 +68,3 @@
     </div>
   </div>
 </div>
-
