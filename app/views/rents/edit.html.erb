@@ -1,9 +1,13 @@
-<h1>Page d'édition d'un rent</h1>
+<div class="container_login banner-flat" style="background-image: url('http://res.cloudinary.com/dwkqph9as/image/upload/v1511970291/BannerImage_vp7iqa.jpg');">
+  <div class="form_card">
+    <h1>Rent Edit</h1>
+    <h2>What do you want to amend?</h2>
+    <%= simple_form_for [current_user, @flat, @rent] do |f| %>
+      <%= f.input :number_of_people %>
+      <%= f.input :check_in_date, as: :date, html5: true %>
+      <%= f.input :check_out_date, as: :date, html5: true %>
+      <%= f.submit "Book it!", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
 
-<h2>What do you want to amend?</h2>
-<%= simple_form_for [current_user, @flat, @rent] do |f| %>
-  <%= f.input :number_of_people %>
-  <%= f.input :check_in_date, as: :date, html5: true %>
-  <%= f.input :check_out_date, as: :date, html5: true %>
-  <%= f.submit "Book it!", class: "btn btn-primary" %>
-<% end %>
