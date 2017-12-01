@@ -1,32 +1,40 @@
-<div class="container_login banner-flat" style="background-image: url('http://res.cloudinary.com/dwkqph9as/image/upload/v1511970291/BannerImage_vp7iqa.jpg');">
-  <div class="form_card">
-
-      <h3>First Name:   <%= @profile.first_name %></h3>
-      <h3>Last Name:    <%= @profile.last_name %></h3>
-      <h3>Address:      <%= @profile.address %></h3>
-      <h3>Post Code:    <%= @profile.post_code %></h3>
-      <h3>City:         <%= @profile.city %></h3>
-      <h3>Phone Number: <%= @profile.phone_number %></h3>
-      <h3>Sex:          <%= @profile.sex %></h3>
-      <h3>Birth Date:   <%= @profile.birth_date %></h3>
-      <p><%= link_to 'Update', edit_profile_path(@profile), class: 'btn btn-primary' %></p>
-
+<div class="container_show" >
+  <div class="profile_photo">
+    <%= cl_image_tag current_user.profile.photo, class: "profile_photo"%>
   </div>
-    <p>Vos réservations</p>
-
-    <div class='row'>
-      <% current_user.profile.rents.each do |rent|%>
-
-        <div class="col-xs-6 col-md-4">
-          <%= render 'shared/card', flat: rent.flat %>
-          <p>Check In:<%= rent.check_in_date %></p>
-          <p>Check Out:<%= rent.check_out_date %></p>
-          <% duree = rent.check_out_date - rent.check_in_date %>
-          <% tarif = rent.flat.price * duree  %>
-          <p>You will pay <%= tarif.to_i %>€</p>
-        </div>
-      <% end%>
-    </div>
+  <div class="title_show">
+    <h1> Hello <%=@profile.first_name.capitalize%> !</h1>
+    <h3><%=@profile.city%>
   </div>
+</div>
+<div class="container_show2">
+  <div class="show_profile">
+    <h2><strong>My details:</strong></h2>
+    <h3>First Name:   <%= @profile.first_name %></h3>
+    <h3>Last Name:    <%= @profile.last_name %></h3>
+    <h3>Address:      <%= @profile.address %></h3>
+    <h3>Post Code:    <%= @profile.post_code %></h3>
+    <h3>City:         <%= @profile.city %></h3>
+    <h3>Phone Number: 0<%= @profile.phone_number %></h3>
+    <h3>Sex:          <%= @profile.sex %></h3>
+    <h3>Birth Date:   <%= @profile.birth_date %></h3>
+    <p><%= link_to 'Update', edit_profile_path(@profile), class: 'btn btn-primary' %></p>
+  </div>
+</div>
+<div class="container">
+  <H2><strong>My journeys:</strong></H2>
+  <div class='row'>
+    <% current_user.profile.rents.each do |rent|%>
+      <div class="col-xs-6 col-md-4">
+        <%= render 'shared/card', flat: rent.flat %>
+        <p>Check In: <%= rent.check_in_date %></p>
+        <p>Check Out: <%= rent.check_out_date %></p>
+        <% duree = rent.check_out_date - rent.check_in_date %>
+        <% tarif = rent.flat.price * duree  %>
+        <p>You will pay <%= tarif.to_i %> €</p>
+      </div>
+    <% end%>
+  </div>
+</div>
 
 
